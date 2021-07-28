@@ -211,6 +211,37 @@ body {
 }
 .w-preview-image__inner {
     position: relative;
+    z-index: 100;
+}
+.w-preview-image__texture {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 90;
+}
+.w-preview-image__texture_block {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.w-preview-image__texture_child {
+    display: block;
+    /* position: fixed; */
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.w-preview-image__texture_line {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 80px;
+    height: 80px;
 }
 /* .w-preview-image__inner--narrow-height {
     height: 100%;
@@ -230,13 +261,7 @@ body {
     width: auto;
     height: auto;
     pointer-events: none;
-}
-.w-preview-image__inner--landscape-image.w-preview-image__inner--narrow-height .w-preview-image__image {
-    width: auto;
-    height: 100%;
-}
-.w-preview-image__inner--landscape-image .w-preview-image__image {
-    width: 100%;
+    z-index: 100;
 }
 .w-roller__wall {
     width: 24px;
@@ -259,14 +284,14 @@ body {
     transition: opacity 500ms ease, visibility 500ms ease;
 }
 .w-desktop-controls__left {
-    z-index: 2;
+    z-index: 150;
     display: flex;
     position: absolute;
     top: 1.25vw;
     left: 1.25vw;
 }
 .w-desktop-controls__right {
-    z-index: 2;
+    z-index: 150;
     display: flex;
     position: absolute;
     top: 1.25vw;
@@ -846,3 +871,123 @@ input, input:before, input:after, input:focus {
     align-items: inherit;
     justify-content: inherit;
 }
+.progress-screen {
+    position:relative;
+    display: none
+}
+.progress-screen__desktop {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:10000;
+    width:100%
+}
+.progress-screen__wrapper {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:10000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:transparent;
+    opacity:.7
+}
+.progress-screen__wrapper--desktop {
+    width:75%
+}
+.progress-screen__square {
+    background:#000000;
+    border-radius:15%;
+    padding:20px;
+    display:flex;
+    justify-content:center
+}
+
+.MuiCircularProgress-root {
+  display: inline-block;
+}
+.MuiCircularProgress-static {
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.MuiCircularProgress-indeterminate {
+  animation: MuiCircularProgress-keyframes-circular-rotate 1.4s linear infinite;
+}
+.MuiCircularProgress-colorPrimary {
+  color: #3f51b5;
+}
+.MuiCircularProgress-colorSecondary {
+  color: #f50057;
+}
+.MuiCircularProgress-svg {
+  display: block;
+}
+.MuiCircularProgress-circle {
+  stroke: currentColor;
+}
+.MuiCircularProgress-circleStatic {
+  transition: stroke-dashoffset 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.MuiCircularProgress-circleIndeterminate {
+  animation: MuiCircularProgress-keyframes-circular-dash 1.4s ease-in-out infinite;
+  stroke-dasharray: 80px, 200px;
+  stroke-dashoffset: 0px;
+}
+@-webkit-keyframes MuiCircularProgress-keyframes-circular-rotate {
+  0% {
+    transform-origin: 50% 50%;
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes MuiCircularProgress-keyframes-circular-dash {
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0px;
+  }
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+  100% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -125px;
+  }
+}
+.MuiCircularProgress-circleDisableShrink {
+  animation: none;
+}
+
+/* .spinner {
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+  
+    margin: 100px auto;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+    animation: sk-rotateplane 1.2s infinite ease-in-out;
+  }
+  
+  @-webkit-keyframes sk-rotateplane {
+    0% { -webkit-transform: perspective(120px) }
+    50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+    100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+  }
+  
+  @keyframes sk-rotateplane {
+    0% { 
+      transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+    } 50% { 
+      transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+    } 100% { 
+      transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+  } */

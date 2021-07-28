@@ -59,6 +59,10 @@ function room_open(img, _data) {
 
         removeClass(wallpaper, 'w-catalog-image--is-active')
     }
+
+    setTimeout(function() {
+        document.querySelector('.progress-screen').style.display = 'none'
+    }, 700)
 }
 
 function get_brand(_id, _value) {
@@ -382,6 +386,8 @@ function favorite_remove(good_id) {
 }
 
 function wallpaper_actived(object) {
+    document.querySelector('.progress-screen').style.display = 'block'
+
     let el_clear = document.querySelector('.room_wallpaper_view_clear')
     let wallpaperslist = document.querySelectorAll('.w-list div.w-list__item')
 
@@ -397,12 +403,65 @@ function wallpaper_actived(object) {
     
     document.querySelector('.w-preview-image__image').src = room_parts[ROOM_NAME][ROOM_ID]
 
-    document.querySelector('.w-preview-image__inner').style.background = `url('${object.imgurl}')`
-    document.querySelector('.w-preview-image__inner').style.backgroundSize = '80px'
-    document.querySelector('.w-preview-image__inner').style.backgroundRepeat = 'repeat'
-
+    print_texture({
+        img: object.imgurl
+    })
 
     // console.log('parts', room_parts[ROOM_NAME][ROOM_ID])
+
+    setTimeout(function() {
+        document.querySelector('.progress-screen').style.display = 'none'
+    }, 700)
+}
+
+function print_texture(object) {
+    document.querySelector('.w-preview-image__image').src = room_parts[ROOM_NAME][ROOM_ID]
+    let sum_width = 1200
+    let sum_height = 800
+
+    let print_left = 0
+    let print_top = 0
+
+    var img = new Image();
+    
+    img.onload = function() {
+        const texture_width = 120
+        const texture_height = Math.floor(this.height / (this.width / texture_width))
+
+        // alert(this.width + 'x' + this.height);
+        // alert(this.height / (this.width / texture_width))
+
+        const texture_top = texture_height - 10
+        const texture_left = texture_height - 26
+
+        let htmlprint = ''
+
+        for (print_left = 0; print_left <= sum_width; print_left += texture_left) {
+
+            for (print_top = 0; print_top <= sum_height; print_top += texture_top) {
+                htmlprint += `
+                    <div
+                        class="w-preview-image__texture_line"
+                        style="
+                            width: ${texture_width}px;
+                            height: ${texture_height}px;
+                            background: url('${object.img}') 0% 0% / ${texture_width}px no-repeat;
+                            left: ${print_left}px;
+                            top: ${print_top}px;
+                        "
+                    ></div>
+                `
+            }
+            
+        }
+
+        document.querySelector('.w-preview-image__texture_child').innerHTML = htmlprint
+    }
+
+    img.src = object.img;
+    // document.querySelector('.w-preview-image__inner').style.background = `url('${object.img}')`
+    // document.querySelector('.w-preview-image__inner').style.backgroundSize = '80px'
+    // document.querySelector('.w-preview-image__inner').style.backgroundRepeat = 'repeat'
 }
 
 function print_collections_brands(object) {

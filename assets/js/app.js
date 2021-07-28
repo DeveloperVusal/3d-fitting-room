@@ -23,6 +23,8 @@ for (let i = 0; i < roomlist.length; i++) {
         let _id = event.target.parentNode.id.split(':')
         let _room = _id[0]
         _id = _id[1]
+
+        document.querySelector('.progress-screen').style.display = 'block'
         
         room_open(rooms[_room][_id], [_room, _id])
     })
