@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Fitting room</title>
+
+    <link rel="stylesheet" href="./assets/css/app.css">
+</head>
+<body>
+    <div class="root">
+        <div class="room room_screen-1">
+            <div class="room-gallery__header">
+                <div class="room-gallery__back-wrapper flex-center"></div>
+                <div class="room-gallery__logo-warapper room-gallery__logo-warapper--only-logo">
+                    <svg viewBox="0 0 87 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="room-gallery__logo"><path d="M24.806 3.666a.3.3 0 01.3-.3h4.5a.3.3 0 01.299.3v14.032a.3.3 0 01-.3.3h-4.499a.3.3 0 01-.3-.3V3.666zM84.441.038l-4.593 1.148a.073.073 0 00-.055.07v2.271c0 .04-.033.073-.073.073h-2.206a.121.121 0 00-.12.121v4.557a.12.12 0 00.12.121h2.206c.04 0 .073.033.073.073v3.527c-.024 3.504 2.444 6 6.02 6h1.057a.121.121 0 00.12-.122V13.32a.126.126 0 00-.12-.125c-1.148-.062-2.279-1-2.279-2.396V8.472c0-.04.033-.073.073-.073h2.206a.121.121 0 00.12-.12V3.72a.121.121 0 00-.12-.121h-2.206a.073.073 0 01-.073-.073V.155a.121.121 0 00-.15-.117zM38.999 13.454a.048.048 0 00.035.082h4.817a.3.3 0 01.3.3v3.862a.3.3 0 01-.3.3H33.054a.3.3 0 01-.3-.3v-4.23a.3.3 0 01.082-.206L37.9 7.88a.048.048 0 00-.035-.082h-4.811a.3.3 0 01-.3-.3V3.635a.3.3 0 01.3-.3H43.85a.3.3 0 01.3.3v4.227a.3.3 0 01-.082.206L39 13.454zm26.542-9.733a.12.12 0 01.121-.121h4.678v1.423c.639-.545 2.395-1.393 4.677-1.422a.12.12 0 01.121.12v4.578a.125.125 0 01-.099.12c-1.135.254-4.711.86-4.711 5.977v3.481a.121.121 0 01-.121.121h-4.545a.121.121 0 01-.121-.12V3.72z" fill="#FA5961"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M58.07 16.448l.113.1c1.03.903 2.432 1.432 4.078 1.432h.724a.3.3 0 00.3-.3v-3.976a.328.328 0 00-.276-.314c-1.142-.212-2.182-1.193-2.182-2.6V3.9a.3.3 0 00-.3-.3H56.58a.3.3 0 00-.3.3v.087l-.405-.123c-.795-.21-1.418-.264-2.27-.264a7.199 7.199 0 00-7.199 7.2 7.199 7.199 0 0011.544 5.739l.12-.091zm-1.923-7.855a.214.214 0 01.133.2v1.997a2.642 2.642 0 11-5.284 0 2.62 2.62 0 012.642-2.643c.87 0 1.701.124 2.509.446z" fill="#FA5961"></path><path d="M21.478 5.72l1.489-.728c.066-.033.066-.066.066-.1 0 0 0-.066-.066-.099l-1.489-.728c-.066-.033-.166-.1-.199-.198l-.727-1.49c-.034-.066-.067-.066-.1-.066 0 0-.066 0-.099.066l-.728 1.49c-.033.066-.1.165-.198.198l-1.49.728c-.065.033-.065.066-.065.1 0 0 0 .066.066.099l1.489.728c.066.033.165.1.198.199l.728 1.489c.033.066.066.066.1.066 0 0 .066 0 .099-.066l.727-1.49c.034-.066.1-.165.199-.198zM.063 4.304l6.318 13.21c.436.808 1.387.696 1.896-.262l1.947-4.126a.917.917 0 00-.027-.765L7.332 6.343a44.685 44.685 0 01-.495-.979c-.77-1.556-.925-1.869-2.77-1.869H.483c-.361 0-.605.468-.421.81zm8.923 0l6.319 13.21c.436.808 1.413.696 1.895-.262l1.947-4.126a.917.917 0 00-.026-.765l-2.865-6.018a43.933 43.933 0 01-.496-.978c-.77-1.557-.925-1.87-2.77-1.87H9.407c-.361 0-.605.468-.42.81z" fill="#FA5961"></path></svg>
+                </div>
+            </div>
+            <div class="room-gallery__title">Обновите свой интерьер!</div>
+            <div class="room-gallery__body">
+                <div class="room-gallery__body-left"></div>
+                <div class="room-gallery__body-right">
+                    <div class="room-gallery__navigation-wrapper">
+                        <div class="room-gallery__navigation">
+                            <div id="livingroom" class="room-gallery__navigation-title room-gallery__navigation-title--active">Гостиная</div>
+                            <div id="bedroom" class="room-gallery__navigation-title">Спальня</div>
+                            <div id="kitchen" class="room-gallery__navigation-title">Кухня</div>
+                            <div id="childrens" class="room-gallery__navigation-title">Детская комната</div>
+                        </div>
+                    </div>
+                    <div class="room-gallery__list-wrapper">
+                        <div class="room-gallery__list">
+                            <div class="room-gallery__image-wrapper">
+                                <span class="MuiSkeleton-root MuiSkeleton-rect room-gallery__image"></span>
+                                <img class="room-gallery__image room-gallery__image--loaded" alt="room preview" src=".">
+                            </div>
+                            <div class="room-gallery__image-wrapper">
+                                <span class="MuiSkeleton-root MuiSkeleton-rect room-gallery__image"></span>
+                                <img class="room-gallery__image room-gallery__image--loaded" alt="room preview" src="">
+                            </div>
+                            <div class="room-gallery__image-wrapper">
+                                <span class="MuiSkeleton-root MuiSkeleton-rect room-gallery__image"></span>
+                                <img class="room-gallery__image room-gallery__image--loaded" alt="room preview" src="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="room room_screen-2">
+            <div class="wizart-app-container">
+                <div class="w-desktop-layout">
+                    <div class="w-desktop-layout__left">
+                        <div class="w-preview-image" style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                            <div class="w-preview-image__inner w-preview-image__inner--landscape-image w-preview-image__inner--narrow-width" style="transform: translateX(0px) translateY(0px) translateZ(0px) scale(1, 1);">
+                                <img src="." class="w-preview-image__image" alt="selected room" style="max-height: 919px;">
+                            </div>
+                        </div>
+                        <div class="w-desktop-controls__left controls-element">
+                            <div class="flex-center w-gallery-button w-gallery-button--desktop" onclick="room_back()">
+                                <span class="flex-center w-gallery-button__icon">
+                                    <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"></path></svg>
+                                </span>
+                                <span class="flex-center w-gallery-button__title">Выбрать интерьер</span>
+                            </div>
+                        </div>
+                        <div class="w-desktop-controls__right controls-element">
+                            <div class="room_wallpaper_view_clear w-desktop-controls__right-secondary-items">
+                                <div class="" title="Очистить поверхность">
+                                    <div class="w-controls__items-item w-controls__items-item--desktop">
+                                        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.46 7.775c-.428-.383-1.126-.364-1.527.042a.879.879 0 00.044 1.3l3.116 2.788-1.375.949a.695.695 0 00-.003 1.169l6.243 4.356a.894.894 0 001.005 0l.768-.534 1.02.913-1.85 1.355a1.02 1.02 0 01-1.174.006l-4.875-3.478c-.438-.312-1.07-.263-1.442.111l-.05.05c-.405.407-.345 1.037.131 1.377l5.517 3.933a2.169 2.169 0 002.491-.01l2.75-2.001 2.289 2.065a1.133 1.133 0 001.53-.039.878.878 0 00-.041-1.296l-2.808-2.533L8.459 7.775zm7.477.902l6.074 4.21a.694.694 0 01.007 1.164l-2.298 1.63-6.492-5.806 1.704-1.195a.894.894 0 011.005-.003z" fill="currentColor"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="room_view_home_back" title="Вернуться на сайт">
+                                <div class="flex-center w-controls-default w-controls-default--desktop">
+                                    <div class="w-controls-default__content">
+                                        <div class="w-controls-default__icon w-controls-default__icon--desktop  flex-center">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="height: 25px;"><g clip-path="url(#icons/close__clip0)"><path d="M7.54 17.333c.233 0 .452-.09.616-.255L12 13.235l3.844 3.843a.867.867 0 00.616.255c.233 0 .453-.09.617-.255a.866.866 0 00.256-.618.862.862 0 00-.256-.617l-3.844-3.842 3.844-3.843a.868.868 0 00.002-1.234.868.868 0 00-.619-.256.867.867 0 00-.616.255L12 10.768 8.156 6.923a.87.87 0 00-1.233 0 .87.87 0 00-.002 1.235L10.765 12l-3.844 3.844a.867.867 0 00-.254.617c0 .233.09.452.256.616a.864.864 0 00.617.255z" fill="currentColor"></path></g><defs><clipPath id="icons/close__clip0"><path fill="#fff" transform="translate(6.667 6.668)" d="M0 0h10.667v10.667H0z"></path></clipPath></defs></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-desktop-layout__right">
+                        <div class="w-articles">
+                            <div class="catalog-header catalog-header--desktop">
+                                <div class="w-article-header w-article-header--desktop w-article-header--landscape">
+                                    <div class="w-article-navigation">
+                                        <div class="w-article-navigation__home-wrapper">
+                                            <div title="Каталог" class="">
+                                                <div class="w-article-navigation__home">
+                                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.73 11.226l-5.307-4.403a.655.655 0 00-.847 0l-5.305 4.403a.789.789 0 00-.127 1.05.675.675 0 00.55.292.652.652 0 00.226-.041l.4-.344v4.778c0 .098.037.195.101.265.065.07.154.109.246.109h2.794v-3.959c0-.099.036-.196.1-.265a.336.336 0 01.246-.11h2.386c.091 0 .18.04.245.11a.39.39 0 01.101.265v3.959h2.795c.092 0 .18-.039.245-.11a.391.391 0 00.1-.264v-4.778l.412.345c.272.095.58.006.765-.253a.788.788 0 00-.127-1.049z" fill="currentColor"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-article-navigation__back">
+                                            <div class="flex-center" title="Назад">
+                                                <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.344 9.166l1.545 1.445L14.2 15l4.689 4.388-1.545 1.446L11.111 15l6.233-5.833z" fill="#000"></path></svg>
+                                            </div>
+                                        </div>
+                                        <span class="w-article-navigation__title w-article-navigation__title-desktop">Бренды</span>
+                                    </div>
+                                    <div class="w-articles-controls w-articles-controls--desktop w-articles-controls--landscape">
+                                        <div class="w-articles-controls-right w-articles-controls-right--desktop">
+                                            <div class="" title="Избранное">
+                                                <div class="flex-center w-articles-controls__favorites">
+                                                    <div class="flex-center w-articles-controls__favorites-bage">0</div>
+                                                    <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.39 11.862c-.426-2.13-1.954-3.503-3.921-3.503-1.1 0-2.291.449-3.456 1.296-1.178-.873-2.369-1.322-3.482-1.322-1.968 0-3.508 1.386-3.922 3.542-.622 3.195 1.372 7.443 7.21 9.753a.522.522 0 00.388 0c5.825-2.361 7.805-6.596 7.184-9.766z" fill="currentColor"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-article-filters">
+                                    <div class="w-articles-controlsw-article-filters__input-wrapper w-article-filters__input-wrapper--desktop w-article-filters__input-wrapper--landscape">
+                                        <div class="w-article-filters__input-field">
+                                            <div class="w-search w-search--desktop">
+                                                <div class="w-input__wrapper">
+                                                    <div class="w-input__field">
+                                                        <input class="w-input--reset w-input w-input--active-search-button" placeholder="Поиск" value="">
+                                                    </div>
+                                                    <button class="w-input__button" type="button">
+                                                        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 25.442l-5.369-5.37a6.944 6.944 0 001.33-4.092A6.988 6.988 0 0015.98 9 6.988 6.988 0 009 15.98a6.988 6.988 0 006.98 6.98 6.944 6.944 0 004.093-1.329L25.443 27l.778-.779.779-.779zm-11.02-4.686a4.776 4.776 0 11-.001-9.551 4.776 4.776 0 01.001 9.55z" fill="#fff"></path></svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-articles__container w-articles__container--desktop w-articles__container--landscape w-articles__container--without-popup">
+                                <div class="w-article-list w-article-list--desktop w-article-list--landscape">
+                                    <div class="w-list w-list__desktop w-list__landscape">
+                                        
+                                    </div>
+                                </div>
+                                <div class="w-favorites__stub w-articles--stub w-articles--stub__desktop">Нет образцов</div>
+                                <div class="w-articles--stub w-searchs__stub">Нет результатов</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-screen"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/bitrix-func.js"></script>
+    <script src="./assets/js/functions.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
